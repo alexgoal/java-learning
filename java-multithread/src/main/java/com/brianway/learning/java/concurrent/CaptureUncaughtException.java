@@ -27,6 +27,8 @@ class ExceptionThread implements Runnable {
 
 class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     public void uncaughtException(Thread t, Throwable e) {
+        Thread thisThread = Thread.currentThread();
+        System.out.println("run() by " + thisThread);
         System.out.println("caught " + e + " in " + t);
     }
 }

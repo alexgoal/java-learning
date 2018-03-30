@@ -13,8 +13,7 @@ public class TestBlockingQueues {
         try {
             // Compensate for Windows/Linux difference in the
             // length of the result produced by the Enter key:
-            new BufferedReader(
-                    new InputStreamReader(System.in)).readLine();
+            new BufferedReader(new InputStreamReader(System.in)).readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

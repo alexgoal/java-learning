@@ -2,7 +2,7 @@ package com.brianway.learning.java.concurrent;
 
 /**
  * Understanding join().
- *
+ * <p>
  * 异常捕获时将清理标志位
  */
 class Sleeper extends Thread {

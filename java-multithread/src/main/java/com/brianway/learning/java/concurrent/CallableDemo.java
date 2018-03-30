@@ -1,16 +1,13 @@
 package com.brianway.learning.java.concurrent;
 
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * Created by brian on 16/11/30.
  */
 public class CallableDemo {
+
     public static void main(String[] args) {
         ExecutorService exec = Executors.newCachedThreadPool();
         ArrayList<Future<String>> results = new ArrayList<>();
@@ -22,10 +19,7 @@ public class CallableDemo {
         for (Future<String> fs : results) {
             try {
                 System.out.println(fs.get());
-            } catch (InterruptedException e) {
-                System.out.println(e);
-                e.printStackTrace();
-            } catch (ExecutionException e) {
+            } catch (InterruptedException | ExecutionException e) {
                 System.out.println(e);
                 e.printStackTrace();
             } finally {
@@ -36,6 +30,7 @@ public class CallableDemo {
 }
 
 class TaskWithResult implements Callable<String> {
+
     private int id;
 
     public TaskWithResult(int id) {
@@ -43,7 +38,7 @@ class TaskWithResult implements Callable<String> {
     }
 
     @Override
-    public String call() throws Exception {
+    public String call() {
         return "result of TaskWithResult  " + id;
     }
 }

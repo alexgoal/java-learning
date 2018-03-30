@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class DaemonsDontRunFinally {
     public static void main(String[] args) throws Exception {
         Thread t = new Thread(new ADaemon());
-        t.setDaemon(true);
+        //t.setDaemon(true);
         t.start();
     }
 }

@@ -86,7 +86,13 @@ class SynchronizedBlocked implements Runnable {
 
     public void run() {
         System.out.println("Trying to call f()");
-        f();
+        try {
+            f();
+        }catch (Exception ex){
+            System.out.println(ex);
+        }finally {
+            System.out.println("bye");
+        }
         System.out.println("Exiting SynchronizedBlocked.run()");
     }
 }
